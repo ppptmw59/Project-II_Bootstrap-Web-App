@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="image/ico/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/1144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/72.png">
+  <link rel="apple-touch-icon-precomposed" href="images/ico/57.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>Signup</title>
+  <link rel="stylesheet" href="css/signup.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
+</head>
+
+<body>
+  <div id="app">
+<div class="container">
+  <div class="wrapper">
+  <div id="err" style="display:none" class="alert alert-danger alert-dismissable fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+    <strong>Incorrect!!! : </strong>
+    <span style="color:blue;font-weight:bold" id="summary">
+Your form contains tons of errors! Please try again.</span>
+  </div>
+  <div id="suc" style="display:none" class="alert alert-success alert-dismissable fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+    <strong>Regist Successful!!!</strong>
+  </div>
+
+<form id="signupForm" class="form-signup" action="" method="POST" role="form">
+  <center><h2 class="form-signin-heading">Register for a new user</h2></center>
+
+  <div class="form-group">
+    <label for="username"><b>Username</b></label>
+    <input type="text" id="username" name="username" placeholder="Username has max length to 12" maxlength="12" autofocus/>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" id="password" name="password" placeholder="Password has max length to 12" maxlength="12">
+
+
+    <label for="con_password"><b>Confirm Password</b></label>
+    <input type="password" id="con_password" name="con_password" placeholder="Password has max length to 12" maxlength="12">
+
+
+    <label for="fname"><b>First name</b></label>
+    <input type="text"  id="fname" name="fname" placeholder="Put a First Name here.">
+
+
+    <label for="lname"><b>Last name</b></label>
+    <input type="text" id="lname" name="lname" placeholder="Put a Last Name here.">
+
+
+    <label for="email"><b>E-Mail Address</b></label>
+    <input type="email" id="email" name="email" placeholder="Put an E-mail here.">
+
+
+    <label for="tel"><b>Telephone</b></label>
+    <input type="text" id="tel" name="tel" maxlength="10" placeholder="Put a Telephone here.">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-lg btn-success btn-block" id="signup" name="button">Register</button>
+  </div>
+  <div class="form-group">
+    <a href="signin.html" role="button" class="btn btn-lg btn-primary btn-block">Back to login</a>
+  </div>
+</form>
+</div>
+</div>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/cache.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/singup.js"></script>
+</body>
+</html>
+</body>
+</html>

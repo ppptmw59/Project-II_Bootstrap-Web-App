@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home</title>
+  <link rel="shortcut icon" href="image/ico/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tag.css">
+</head>
+
+</head>
+
+<body>
+  <div class="brand clearfix">
+    <div class="navbar-brand">
+<img src="image/logo.svg">
+</div>
+    <ul class="ts-profile-nav">
+      <li class="ts-account">
+        <a href="#" style="text-decoration: none;">
+          <img src="image/ava.png" class="ts-avatar hidden-side">
+          <span class="username" style="color:white"></span>
+          <i class="fa fa-angle-down hidden-side"></i>
+        </a>
+        <ul>
+          <li><a href="#" class="edit">My Account</a></li>
+          <li><a href="signin.html" onclick="deleteCookie()">Log out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><br><br><br><br>
+  <div class="container">
+    <legend><h1><center>&nbsp;<i>HELLO MY USER<br></center></i></h1></legend>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="image/logout-icon.png" alt="logout" style="width:60%">
+            <div class="caption">
+              <center><a href="signin.html" class="btn btn-primary btn-block" role="button" id="Back">Log Out</a></center>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="image/Update-icon.png" alt="Nature" style="width:60%">
+            <div class="caption">
+              <center><a href="#" class="view btn btn-primary btn-block">View & Update Information</a></center>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="image/Edit-icon.png" alt="Fjords" style="width:60%">
+            <div class="caption">
+              <center><a href="#" class="edit btn btn-primary btn-block">Edit Account</a></center>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/cache.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/user.js"></script>
+  <script type="text/javascript" src="js/jquery.cookie.js"></script>
+  <script type="text/javascript">
+    console.log($.cookie('keep'));
+
+    function deleteCookie() {
+      $.removeCookie('keep');
+      console.log($.removeCookie('keep'));
+    }
+
+    $(document).ready(function() {
+
+      $.urlParam = function(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        return results[1] || 0;
+      }
+      $(function() {
+        var id = $.urlParam('id');
+        var url = "http://membershipwebapi977290.azurewebsites.net/api/Members/" + id;
+        console.log(url);
+        $.get(url, function(inf, status) {
+          console.log(inf);
+          $('.account').attr('href', "edituser.html?id=" + inf.Id);
+          $(".my-profile").attr('href', "my-profile.html?id=" + inf.Id);
+          $('.username').html(inf.UserName);
+          $(".view").attr('href', "viewuser.html?id=" + inf.Id);
+          $(".edit").attr('href', "edituser.html?id=" + inf.Id);
+          $(".dashboard").attr('href', "home.html?id=" + inf.Id);
+        });
+      });
+
+    });
+  </script>
+</body>
+
+</html>
